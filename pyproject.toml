@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "bq_iterate"
-version = "0.1.0"
-description = ""
+version = "0.1.1"
+description = "Work with BigQuery data as you do with lists in python"
 authors = ["Senhaji-Rhazi-Hamza <hamza.senhajirhazi@gmal.com>"]
 license = "MIT"
 readme = "README.md"
