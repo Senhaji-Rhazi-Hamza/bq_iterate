@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "bq_iterate"
-version = "0.1.1"
+version = "0.1.5"
 description = "Work with BigQuery data as you do with lists in python"
 authors = ["Senhaji-Rhazi-Hamza <hamza.senhajirhazi@gmal.com>"]
 license = "MIT"
@@ -14,7 +14,7 @@ classifiers = [
 [tool.poetry.dependencies]
 python = ">=3.8,<3.10"
 tenacity = "^7.0.0"
-google-cloud-bigquery = "^2.12.0"
+google-cloud-bigquery = "^2.2.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

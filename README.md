@@ -2,7 +2,7 @@
 This project serves as a BigQuery helper that allows you to query data from BigQuery, without worrying about memory limitation concerns, it makes working with BigQuery data as easy as working with lists in python
 
 ## Installation : 
-```pip install bq-iterate```
+```python3.8 -m pip install  bq-iterate```
 ## Usage
 ```python
 from bq_iterate import BqQueryRowIterator, batchify_iterator
