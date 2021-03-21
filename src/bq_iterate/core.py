@@ -10,8 +10,8 @@ class BqRowIterator:
         self.batch_size = batch_size
         self.initialized = False
         self.nth_batch = 0
-        self.__class__.client = bigquery.Client() \
-            if ((client is None) or (self.__class__.client is None)) else client
+        if self.__class__.client is None:
+            self.__class__.client = bigquery.Client() if (client is None)  else client
 
     def __iter__(self):
         return self
