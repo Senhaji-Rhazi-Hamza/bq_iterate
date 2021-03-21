@@ -2,8 +2,15 @@
 name = "bq_iterate"
 version = "0.1.0"
 description = ""
-authors = ["Senhaji-Rhazi-Hamza <hamza.senhaji-rhazi@epita.fr>"]
-
+authors = ["Senhaji-Rhazi-Hamza <hamza.senhajirhazi@gmal.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/Senhaji-Rhazi-Hamza/bq_iterate"
+keywords = ["BigQuery", "google", "batch", "gcp"]
+classifiers = [
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9"
+]
 [tool.poetry.dependencies]
 python = ">=3.8,<3.10"
 tenacity = "^7.0.0"

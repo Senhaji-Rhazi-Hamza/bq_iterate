@@ -3,9 +3,6 @@ from google.cloud import bigquery
 
 from bq_iterate.retry import default_retry
 
-#client = bigquery.Client()
-
-
 class BqRowIterator:
     client = None
 
@@ -13,7 +10,8 @@ class BqRowIterator:
         self.batch_size = batch_size
         self.initialized = False
         self.nth_batch = 0
-        self.__class__.client = client if (client is not None) else bigquery.Client()
+        self.__class__.client = bigquery.Client() \
+            if ((client is None) or (self.__class__.client is None)) else client
 
     def __iter__(self):
         return self
@@ -57,10 +55,10 @@ class BqRowIterator:
 
 class BqQueryRowIterator(BqRowIterator):
 
-    def __init__(self,  query, batch_size=10000):
+    def __init__(self,  query, batch_size=10000, client=None):
         self.query = query
+        super().__init__(batch_size,  client=client)
         self.query_job = self.client.query(query)
-        super().__init__(batch_size)
 
     def list_next_rows(self, page_token= None):
         return self.client.list_rows(
@@ -72,11 +70,11 @@ class BqQueryRowIterator(BqRowIterator):
 
 class BqTableRowIterator(BqRowIterator):
 
-    def __init__(self, project_id, dataset_id, table_id, batch_size=10000):
+    def __init__(self, project_id, dataset_id, table_id, batch_size=10000, client=None):
         self.project_id = project_id
         self.dataset_id = dataset_id
         self.table_id = table_id
-        super().__init__(batch_size)
+        super().__init__(batch_size=batch_size, client=client)
 
     def list_next_rows(self, page_token=None):
         try:

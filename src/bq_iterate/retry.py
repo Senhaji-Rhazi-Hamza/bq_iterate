@@ -1,4 +1,4 @@
-from  bq_iterate import config
+from bq_iterate import config
 
 from tenacity import (
     retry as _retry,
